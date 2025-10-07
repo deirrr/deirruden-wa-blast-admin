@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\LicenseApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::middleware('api.key')->group(function () {
+    Route::get('/license/verify', [LicenseApiController::class, 'verify']);
+    Route::post('/license/activate', [LicenseApiController::class, 'activate']);
 });

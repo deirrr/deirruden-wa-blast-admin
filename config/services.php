@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'license_api' => [
+        'key' => env('LICENSE_API_KEY', null),
+    ],
+
+
 ];
